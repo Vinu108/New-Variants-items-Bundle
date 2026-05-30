@@ -1,0 +1,1381 @@
+
+
+{% if product.handle == 'loaded-water-20-pack' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   BUNDLE UP & SAVE BIG – Redesigned Bundle Selector
+   Memorial Day Sale Theme – Pink/Magenta
+   ═══════════════════════════════════════════════════════ */
+
+.subscription_bundle_wrapperr {
+  width: 100%;
+  max-width: 700px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.subscription_bundle_wrapperr * {
+  box-sizing: border-box;
+}
+
+/* ── HEADER ── */
+.bundle-header-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #000;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── SUBSCRIBE & SAVE CHECKBOX ── */
+.subscription_bundle_wrapperr .subscription-box {
+  border: 2px dashed #E91E8C;
+  border-radius: 9px;
+  padding: 10px 15px 14px;
+  max-width: 100%;
+  transition: all 0.3s ease;
+  background: #fdf2f8;
+  margin: 0 0 14px;
+  display: flex !important;
+}
+
+.subscription_bundle_wrapperr .subscription-box.sub-active {
+  border-color: #E91E8C;
+  background: #fdf2f8;
+}
+
+.subscription_bundle_wrapperr .subscription-label {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  cursor: pointer;
+  gap: 16px;
+  align-items: center;
+}
+
+.subscription_bundle_wrapperr .subscription-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #E91E8C;
+  border-radius: 0;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+}
+
+.subscription_bundle_wrapperr .subscription-checkbox:checked::after {
+  content: "✔";
+  color: #E91E8C;
+  font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+}
+
+.subscription_bundle_wrapperr .subscription-text .title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+.subscription_bundle_wrapperr .subscription-text .subtitle {
+  font-size: 14px;
+  color: #666;
+  line-height: 16px;
+}
+
+.subscription-text div {
+  line-height: 16px;
+}
+
+/* ── TIMER BAR ── */
+.flash-sale-bar {
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  background: #2D2B55;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 0;
+  border-radius: 8px;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+/* ── BUNDLE BOXES ── */
+.wrapper_bundles {
+  margin: 0 0 15px;
+}
+
+.bundle-box {
+    cursor: pointer;
+    margin-top: 12px;
+        background: #f9f6ff;
+    border-radius: 12px;
+    position: relative;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: inset 0 0 0 1px rgb(236 72 153 / 30%);
+    border: unset;
+}
+
+.bundle-box:first-child {
+  margin-top: 0;
+}
+
+.bundle-box:hover {
+ box-shadow: inset 0 0 0 2px rgb(236 72 153 / 30%);
+}
+
+.bundle-box.active {
+  border: 2px solid #E91E8C;
+  box-shadow: 0 4px 18px rgba(233, 30, 140, 0.12);
+  background: #fff;
+}
+
+.bundle-box.active:hover {
+  border: 2px solid #E91E8C;
+}
+
+/* ── MOST POPULAR / BEST VALUE BADGE (floating) ── */
+  /* BEST VALUE BADGE */
+.wrapper_bundles .badge {
+    position: absolute;
+    top: -13px;
+    right: 9px;
+    color: #fff;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 8px;
+    padding: 3px 11px;
+    background-color: rgb(236 72 153);
+    color: #fff;
+    border-radius: 0 0 5px 5px;
+    font-family: sans-serif;
+    letter-spacing: 0;
+}
+
+
+.wrapper_bundles .badge:before {
+    display: block;
+    position: absolute;
+    top: -1px;
+    width: 1px;
+    height: 1px;
+    content: "";
+    border-bottom-width: 13px;
+    border-bottom-style: solid;
+    filter: brightness(.7);
+    left: -7px;
+    border-left: 8px solid transparent;
+     border-bottom-color: rgb(165 50 107);
+}
+
+
+.wrapper_bundles .badge:after {
+    display: block;
+    position: absolute;
+    top: -1px;
+    width: 1px;
+    height: 1px;
+    content: "";
+    border-bottom-width: 13px;
+    border-bottom-style: solid;
+    filter: brightness(.7);
+    right: -7px;
+    border-right: 8px solid transparent;
+    border-bottom-color: rgb(165 50 107);
+}
+
+.bundle-box[data_index="3"] .bundle-top {
+  padding-top: 18px;
+}
+
+.badge img {
+  width: 70px;
+  height: auto;
+  display: block;
+}
+
+/* ── TOP ROW — Radio + info + price ── */
+.bundle-top {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 14px;
+  padding: 16px 16px;
+  align-items: center;
+}
+
+.bundle-top .product-img-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.bundle-top .radio-circle {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 50%;
+    position: relative;
+    transition: border-color 0.2s ease;
+    flex-shrink: 0;
+    box-shadow: inset 0 0 0 2px rgb(236 72 153 / 30%);
+    border: unset;
+}
+
+.bundle-box.active .radio-circle {
+  border-color: #E91E8C;
+  box-shadow: inset 0 0 0 2px #E91E8C;
+}
+
+.bundle-box.active .radio-circle::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #E91E8C;
+}
+
+
+
+.bundle-top .product-thumb img {
+  width: 100%;
+  display: block;
+}
+
+.bundle-box[data_index="4"] .bundle-top {
+  grid-template-columns: 23px auto auto;
+}
+
+.bundle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.bundle-info h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #301B57;
+    line-height: 1.2;
+    text-transform: none;
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+}
+
+.bundle-info .inline-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #000;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    background: transparent;
+     font-family: 'DM Sans', sans-serif;
+}
+
+.bundle-info .sub {
+    font-size: 12px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.3;
+    font-family: 'DM SANS',sans-serif;
+}
+/* ── PRICE AREA ── */
+.price-area {
+  text-align: right;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.price-area .new {
+    font-size: 18px;
+    font-weight: 700;
+    color: #301B57;
+    line-height: 1;
+    font-family: 'DM SANS',sans-serif;
+    font-style: italic;
+}
+
+.bundle-box.active .price-area .new {
+  color: #E91E8C;
+}
+
+.price-area .old {
+    text-decoration: line-through;
+    font-size: 12px;
+    color: #555;
+    display: block;
+    margin-top: 2px;
+       font-family: 'DM SANS',sans-serif;
+    font-weight: 100;
+}
+
+/* ── BANNER HEADER ── */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 20px 0 0;
+  margin: 0 0 14px;
+}
+
+.banner p {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.banner .line {
+  flex: 1;
+  height: 2px;
+  background-color: #f0c6dd;
+  max-width: 312px;
+  display: flex;
+}
+
+/* ── FREE SHIPPING ── */
+.free-shipping-line {
+  padding: 0 14px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #E91E8C;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.free-shipping-line .check {
+  color: #000;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.free-shipping-line p {
+  color: #000;
+  margin: 0;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+.subscription_bundle_wrapperr .bundle-box .product-img {
+  height: 23px;
+  width: 23px;
+  border: 2px solid #d4b8de;
+  border-radius: 100%;
+  position: relative;
+  background: #fff;
+}
+
+.subscription_bundle_wrapperr .bundle-box.active .product-img:before {
+  position: absolute;
+  content: '';
+  background: #E91E8C;
+  height: 13px;
+  width: 13px;
+  border-radius: 100%;
+  top: 3px;
+  left: 3px;
+}
+
+.subscription_bundle_wrapperr .bundle-box.active .product-img {
+  border: 2px solid #E91E8C;
+}
+
+/* ── PER-BOTTLE BAR ── */
+.subscription_bundle_wrapperr .bundle-box.active .per-bottle-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #E91E8C;
+  padding: 8px 14px;
+  font-size: 13px;
+  border-top: none;
+}
+
+.subscription_bundle_wrapperr .bundle-box.active .per-bottle-bar .per-label {
+  color: #fff;
+}
+
+.subscription_bundle_wrapperr .bundle-box.active .per-bottle-bar .per-old {
+  color: #fff;
+}
+
+.per-bottle-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ccc;
+  padding: 7px 10px;
+  font-size: 13px;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+}
+
+.per-bottle-bar .per-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: #000;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.per-bottle-bar .per-label img {
+  width: 30px;
+  height: auto;
+  border-radius: 3px;
+}
+
+.per-bottle-bar .per-old {
+  text-decoration: line-through;
+  color: #000000;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+/* ── FREE GIFT ITEM BAR ── */
+.free-item {
+  display: flex;
+  grid-template-columns: 1fr 62px;
+  align-items: center;
+  padding: 7px 14px;
+  background: #fff;
+  color: #2D1B4E;
+  gap: 10px;
+  border-radius: 0px 0px 9px 9px;
+   box-shadow: inset 0 0 0 1px rgb(236 72 153 / 30%);
+}
+
+.bundle-box.active .free-item {
+  display: grid;
+  background: #E91E8C !important;
+   color: #fff;
+}
+
+.free-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.free-item-left img {
+  width: 30px;
+  max-width:30px;
+  border-radius: 4px;
+}
+
+.free-item-right {
+  text-align: right;
+  font-size: 12px;
+}
+
+.free-old {
+  color: #fff;
+  margin-right: 6px;
+  text-decoration: line-through;
+}
+
+/* ── ADD TO CART BUTTON ── */
+.bundle-atc-btn {
+  display: block;
+  width: 100%;
+  padding: 18px 0;
+  margin-top: 16px;
+  background: #E91E8C;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.bundle-atc-btn:hover {
+  background: #c91878;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .bundle-top {
+    gap: 8px;
+    padding: 12px 10px;
+  }
+
+  .bundle-top .product-thumb {
+    width: 34px;
+  }
+
+  .bundle-info h2 {
+    font-size: 15px;
+  }
+
+  .bundle-info .inline-badge {
+    font-size: 9px;
+    padding: 1px 5px;
+  }
+
+  .bundle-info .sub {
+    font-size: 12px;
+  }
+
+  .price-area .new {
+    font-size: 18px;
+  }
+
+  .price-area .old {
+    font-size: 12px;
+  }
+
+  .per-bottle-bar {
+    font-size: 12px;
+  }
+
+  .free-item-left {
+    font-size: 12px;
+    line-height: 128%;
+  }
+
+  .bundle-atc-btn {
+    font-size: 16px;
+    padding: 16px 0;
+  }
+
+  .bundle-header-title {
+    font-size: 15px;
+  }
+}
+
+/* Hide the non-active wrapper */
+.wrapper_bundles_with_subscripton {
+  display: none;
+}
+
+/* ── Variant selectors (show/hide on active) ── */
+.variant-selectors-wrap {
+  display: none;
+  padding: 0px 16px;
+}
+
+.bundle-box.active .variant-selectors-wrap {
+  display: block;
+}
+
+.variant-selectors-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.variant-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.variant-row-img {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.variant-row-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.variant-row .variant-select {
+    padding: 8px 30px 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 1px rgb(236 72 153 / 30%);
+    border: unset;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.variant-row .variant-select:hover {
+    box-shadow: inset 0 0 0 2px rgb(236 72 153 / 30%);
+    border: unset;
+}
+
+
+#customAddToCart{
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    padding: 16px 24px;
+    background: var(--gradient-cta);
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 6px 24px #ff85c84d;
+    white-space: normal;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+
+{% if product.handle == 'loaded-water-20-pack' %}
+    .pdp-cta-btn {
+      display: none !important;
+    }
+{% endif %}
+
+
+</style>
+
+
+
+
+
+{% for block in section.blocks %}
+  {% if block.type == 'bundle_product' %}
+    {% assign product_one = block.settings.product_one %}
+    {% assign product_two = block.settings.product_two %}
+    {% assign product_three = block.settings.product_three %}
+    {% assign product_four = block.settings.product_four %}
+
+    {% assign sub_product_one = block.settings.sub_product_one %}
+    {% assign sub_product_two = block.settings.sub_product_two %}
+    {% assign sub_product_three = block.settings.sub_product_three %}
+    {% assign sub_product_four = block.settings.sub_product_four %}
+
+    {% assign gift_product_one = block.settings.gift_product_one %}
+    {% assign gift_product_two = block.settings.gift_product_two %}
+    {% assign gift_product_three = block.settings.gift_product_three %}
+  {% endif %}
+{% endfor %}
+
+
+
+
+<div class="subscription_bundle_wrapperr">
+  <div class="wrapper_bundles">
+
+    <!-- HEADER -->
+    <div class="banner">
+      <div class="line"></div>
+      <p>Memorial Day Sale 💝</p>
+      <div class="line"></div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════
+         WITHOUT SUBSCRIPTION BUNDLES
+         ══════════════════════════════════════════════════ -->
+    <div class="wrapper_bundles_without_subscripton">
+
+      <!-- BUNDLE 1 — Buy 1 -->
+      <div class="bundle-box" data_index="1" var_id="{{ product_one.variants.first.id }}" var_id_two="{{ gift_product_one.variants.first.id }}">
+        <div class="bundle-top">
+          <div class="product-img-wrap">
+            <div class="radio-circle"></div>
+          </div>
+          <div class="bundle-info">
+            {% assign discount_price = product_one.compare_at_price | minus: product_one.price %}
+            {% assign save_price = discount_price | times: 100 | divided_by: product_one.compare_at_price %}
+            <h2>Buy 1 <span class="inline-badge">Save {{save_price | round}}%</span></h2>
+            <div class="sub">10 Loaded Packets</div>
+          </div>
+          <div class="price-area">
+            <div class="new">{{ product_one.price | money }}</div>
+            <div class="old">{{ product_one.compare_at_price | money }}</div>
+          </div>
+        </div>
+
+        
+
+            <!-- Variant selectors -->
+          <div class="variant-selectors-wrap">
+            <div class="variant-selectors-label">Flavor</div>
+
+            {% assign default_variant = product_one.variants.first %}
+
+            <div class="variant-row">
+              <div class="variant-row-img">
+                <img 
+                  src="{{ default_variant.image | default: product_one.featured_image | image_url: height: 200 }}" 
+                  alt="{{ default_variant.title }}"
+                  class="variant-image">
+              </div>
+
+              <select class="variant-select" data-product="product_one">
+                {% for variant in product_one.variants %}
+                  <option 
+                    value="{{ variant.id }}"
+                    data-image="{{ variant.image | default: product_one.featured_image | image_url: height: 200 }}"
+                    {% if forloop.first %}selected{% endif %}>
+                    {{ variant.title }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+
+          </div>
+      </div>
+
+      <!-- BUNDLE 2 — Buy 2 Get 1 Free -->
+      <div class="bundle-box active" data_index="2" var_id="{{ product_two.variants.first.id }}" var_id_two="{{ gift_product_one.variants.first.id }}">
+        <div class="badge">Most Picked</div>
+        <div class="bundle-top">
+          <div class="product-img-wrap">
+            <div class="radio-circle"></div>
+          </div>
+          <div class="bundle-info">
+            {% assign discount_price = product_two.compare_at_price | minus: product_two.price %}
+            {% assign save_price = discount_price | times: 100 | divided_by: product_two.compare_at_price %}
+            <h2>Buy 2, Get 1 FREE <span class="inline-badge">SAVE {{save_price | round}}%</span></h2>
+            <div class="sub">30 Loaded Packets!</div>
+          </div>
+          <div class="price-area">
+            <div class="new">{{ product_two.price  | times: 3 |money }}</div>
+            <div class="old">{{ product_two.compare_at_price | money }}</div>
+          </div>
+        </div>
+
+        <!-- Variant selectors -->
+        <div class="variant-selectors-wrap">
+          <div class="variant-selectors-label">Flavor</div>
+                  {% assign default_variant = product_two.variants.first %}
+                  {% for i in (1..3) %}
+                    <div class="variant-row">
+                      
+                      <div class="variant-row-img">
+                        <img 
+                          src="{{ default_variant.image | default: product_two.featured_image | image_url: height: 200 }}" 
+                          alt="{{ default_variant.title }}"
+                          class="variant-image">
+                      </div>
+
+                      <select class="variant-select" data-row="{{ i }}">
+                        {% for variant in product_two.variants %}
+                          <option 
+                            value="{{ variant.id }}"
+                            data-image="{{ variant.image | default: product_two.featured_image | image_url: height: 200 }}"
+                            {% if forloop.first %}selected{% endif %}>
+                            {{ variant.title }}
+                          </option>
+                        {% endfor %}
+                      </select>
+
+                    </div>
+                  {% endfor %}
+        </div>
+
+        <!-- Free gift item -->
+        <div class="free-item" data_index="1">
+          <div class="free-item-left">
+            <img src="https://www.loadedwaters.co/cdn/shop/files/HBDHMQSMg736L9qaPBT1X_w8jhSuOo.png?height=200&v=1778287146" alt="{{ gift_product_one.title }}">
+            <span>+ FREE Cups!</span>
+          </div>
+          <div class="free-item-right">
+            <span class="free-old">{{ gift_product_one.price | money }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUNDLE 3 — Buy 3 Get 2 Free -->
+      <div class="bundle-box" data_index="3" var_id="{{ product_three.variants.first.id }}" var_id_two="{{ gift_product_one.variants.first.id }}">
+        <!-- Best Value Badge -->
+        <div class="badge">Best Value</div>
+        <div class="bundle-top">
+          <div class="product-img-wrap">
+            <div class="radio-circle"></div>
+          </div>
+          <div class="bundle-info">
+            {% assign discount_price = product_three.compare_at_price | minus: product_three.price %}
+            {% assign save_price = discount_price | times: 100 | divided_by: product_three.compare_at_price %}
+            <h2>Buy 3, Get 2 FREE <span class="inline-badge">SAVE {{save_price | round}}%</span></h2>
+            <div class="sub">50 Loaded Packets!</div>
+          </div>
+          <div class="price-area">
+            <div class="new">{{ product_three.price  | times: 5 | money }}</div>
+            <div class="old">{{ product_three.compare_at_price | money }}</div>
+          </div>
+        </div>
+
+        <!-- Variant selectors — shown only when active -->
+      <div class="variant-selectors-wrap">
+          <div class="variant-selectors-label">Flavor</div>
+                  {% assign default_variant = product_three.variants.first %}
+                  {% for i in (1..5) %}
+                    <div class="variant-row">
+                      
+                      <div class="variant-row-img">
+                        <img 
+                          src="{{ default_variant.image | default: product_three.featured_image | image_url: height: 200 }}" 
+                          alt="{{ default_variant.title }}"
+                          class="variant-image">
+                      </div>
+
+                      <select class="variant-select" data-row="{{ i }}">
+                        {% for variant in product_three.variants %}
+                          <option 
+                            value="{{ variant.id }}"
+                            data-image="{{ variant.image | default: product_three.featured_image | image_url: height: 200 }}"
+                            {% if forloop.first %}selected{% endif %}>
+                            {{ variant.title }}
+                          </option>
+                        {% endfor %}
+                      </select>
+
+                    </div>
+                  {% endfor %}
+        </div>
+
+        <!-- Free gift item -->
+        <div class="free-item" data_index="1">
+          <div class="free-item-left">
+            <img src="https://www.loadedwaters.co/cdn/shop/files/HBDHMQSMg736L9qaPBT1X_w8jhSuOo.png?height=200&v=1778287146" alt="{{ gift_product_one.title }}">
+            <span>+ FREE Cups!</span>
+          </div>
+          <div class="free-item-right">
+            <span class="free-old">{{ gift_product_one.price | money }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END wrapper_bundles_without_subscripton -->
+
+    <!-- ══════════════════════════════════════════════════
+         WITH SUBSCRIPTION BUNDLES (same pattern applied)
+         ══════════════════════════════════════════════════ -->
+    <div class="wrapper_bundles_with_subscripton" style="display:none;">
+
+      <!-- SUB BUNDLE 1 — Buy 1 -->
+        <div class="bundle-box" data_index="1" var_id="{{ sub_product_one.variants.first.id }}" var_id_two="{{ gift_product_one.variants.first.id }}" var_id_three="{{ gift_product_two.variants.first.id }}">
+
+          <div class="bundle-top">
+            <div class="product-img-wrap">
+              <div class="radio-circle"></div>
+            </div>
+
+            <div class="bundle-info">
+              {% assign discount_price = sub_product_one.compare_at_price | minus: sub_product_one.price %}
+              {% assign save_price = discount_price | times: 100 | divided_by: sub_product_one.compare_at_price %}
+
+              <h2>
+                Buy 1 <span class="inline-badge">You Save {{ save_price | round }}%</span>
+              </h2>
+
+              <div class="sub">10 Loaded Packets</div>
+            </div>
+
+            <div class="price-area">
+              <div class="new">{{ sub_product_one.price | money }}</div>
+              <div class="old">{{ sub_product_one.compare_at_price | money }}</div>
+            </div>
+          </div>
+
+          <!-- Variant selectors -->
+          <div class="variant-selectors-wrap">
+            <div class="variant-selectors-label">Flavor</div>
+
+            {% assign default_variant = sub_product_one.variants.first %}
+
+            <div class="variant-row">
+              <div class="variant-row-img">
+                <img 
+                  src="{{ default_variant.image | default: sub_product_one.featured_image | image_url: height: 200 }}" 
+                  alt="{{ default_variant.title }}"
+                  class="variant-image">
+              </div>
+
+              <select class="variant-select" data-product="sub_product_one">
+                {% for variant in sub_product_one.variants %}
+                  <option 
+                    value="{{ variant.id }}"
+                    data-image="{{ variant.image | default: sub_product_one.featured_image | image_url: height: 200 }}"
+                    {% if forloop.first %}selected{% endif %}>
+                    {{ variant.title }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+      <!-- SUB BUNDLE 2 — Buy 2 Get 1 Free -->
+      <div class="bundle-box active" data_index="2" var_id="{{ sub_product_two.variants.first.id }}" var_id_two="{{ gift_product_one.variants.first.id }}" var_id_three="{{ gift_product_two.variants.first.id }}" var_id_four="{{ gift_product_three.variants.first.id }}">
+        <div class="badge">Most Picked</div>
+        <div class="bundle-top">
+          <div class="product-img-wrap">
+            <div class="radio-circle"></div>
+          </div>
+          <div class="bundle-info">
+            {% assign discount_price = sub_product_two.compare_at_price | minus: sub_product_two.price %}
+            {% assign save_price = discount_price | times: 100 | divided_by: sub_product_two.compare_at_price %}
+            <h2>Buy 2, Get 1 FREE<span class="inline-badge">SAVE {{save_price | round}}%</span></h2>
+            <div class="sub">20 Loaded Packets</div>
+          </div>
+          <div class="price-area">
+            <div class="new">{{ sub_product_two.price | times: 3 | money }}</div>
+            <div class="old">{{ sub_product_two.compare_at_price | money }}</div>
+          </div>
+        </div>
+
+        <!-- Variant selectors -->
+        <div class="variant-selectors-wrap">
+          <div class="variant-selectors-label">Flavor</div>
+                  {% assign default_variant = sub_product_two.variants.first %}
+                  {% for i in (1..3) %}
+                    <div class="variant-row">
+                      
+                      <div class="variant-row-img">
+                        <img 
+                          src="{{ default_variant.image | default: sub_product_two.featured_image | image_url: height: 200 }}" 
+                          alt="{{ default_variant.title }}"
+                          class="variant-image">
+                      </div>
+
+                      <select class="variant-select" data-row="{{ i }}">
+                        {% for variant in sub_product_two.variants %}
+                          <option 
+                            value="{{ variant.id }}"
+                            data-image="{{ variant.image | default: sub_product_two.featured_image | image_url: height: 200 }}"
+                            {% if forloop.first %}selected{% endif %}>
+                            {{ variant.title }}
+                          </option>
+                        {% endfor %}
+                      </select>
+
+                    </div>
+                  {% endfor %}
+        </div>
+
+        <!-- Free gift item -->
+        <div class="free-item" data_index="1">
+          <div class="free-item-left">
+            <img src="https://www.loadedwaters.co/cdn/shop/files/HBDHMQSMg736L9qaPBT1X_w8jhSuOo.png?height=200&v=1778287146" alt="{{ gift_product_one.title }}">
+            <span>+ FREE Cups!</span>
+          </div>
+          <div class="free-item-right">
+            <span class="free-old">{{ gift_product_one.price | money }}</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SUB BUNDLE 3 — Buy 3 Get 3 Free -->
+      <div class="bundle-box" data_index="3" var_id="{{ sub_product_three.variants.first.id }}" var_id_two="{{ gift_product_one.variants.first.id }}" var_id_three="{{ gift_product_two.variants.first.id }}" var_id_four="{{ gift_product_three.variants.first.id }}">
+        <div class="badge">Best Value</div>
+        <div class="bundle-top">
+          <div class="product-img-wrap">
+            <div class="radio-circle"></div>
+          </div>
+          <div class="bundle-info">
+            {% assign discount_price = sub_product_three.compare_at_price | minus: sub_product_three.price %}
+            {% assign save_price = discount_price | times: 100 | divided_by: sub_product_three.compare_at_price %}
+            <h2>Buy 3, Get 2 FREE <span class="inline-badge">SAVE {{save_price | round}}%</span></h2>
+            <div class="sub">50 Loaded Packets!</div>
+          </div>
+          <div class="price-area">
+            <div class="new">{{ sub_product_three.price | times: 5 | money }}</div>
+            <div class="old">{{ sub_product_three.compare_at_price | money }}</div>
+          </div>
+        </div>
+
+        <!-- Variant selectors -->
+        <div class="variant-selectors-wrap">
+          <div class="variant-selectors-label">Flavor</div>
+                {% assign default_variant = sub_product_three.variants.first %}
+                  {% for i in (1..5) %}
+                    <div class="variant-row">
+                      
+                      <div class="variant-row-img">
+                        <img 
+                          src="{{ default_variant.image | default: sub_product_three.featured_image | image_url: height: 200 }}" 
+                          alt="{{ default_variant.title }}"
+                          class="variant-image">
+                      </div>
+
+                      <select class="variant-select" data-row="{{ i }}">
+                        {% for variant in sub_product_three.variants %}
+                          <option 
+                            value="{{ variant.id }}"
+                            data-image="{{ variant.image | default: sub_product_three.featured_image | image_url: height: 200 }}"
+                            {% if forloop.first %}selected{% endif %}>
+                            {{ variant.title }}
+                          </option>
+                        {% endfor %}
+                      </select>
+
+                    </div>
+                  {% endfor %}
+        </div>
+
+        <div class="free-item" data_index="1">
+          <div class="free-item-left">
+            <img src="https://www.loadedwaters.co/cdn/shop/files/HBDHMQSMg736L9qaPBT1X_w8jhSuOo.png?height=200&v=1778287146" alt="{{ gift_product_one.title }}">
+            <span>+ FREE Cups!</span>
+          </div>
+          <div class="free-item-right">
+            <span class="free-old">{{ gift_product_one.price | money }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END wrapper_bundles_with_subscripton -->
+  </div>
+
+  <!-- SUBSCRIBE & SAVE -->
+  <div class="subscription-box" id="subscriptionBox">
+    <label class="subscription-label">
+      <input type="checkbox" id="subscriptionCheck" class="subscription-checkbox">
+      <div class="subscription-content">
+        <div class="subscription-text">
+          <span class="title">Save 25% With Refills</span>
+          <div>
+            <span class="subtitle">No commitment, cancel Anytime</span>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+
+
+  <button type="button" id="customAddToCart" class="add-to-cart-btn">
+  Grab Your Stack <i class="fas fa-arrow-right"></i>
+</button>
+
+
+
+
+<script>
+document.getElementById("customAddToCart").addEventListener("click", async function () {
+
+  const isSubscription = document.getElementById("subscriptionCheck")?.checked;
+
+  const wrapper = isSubscription
+    ? document.querySelector(".wrapper_bundles_with_subscripton")
+    : document.querySelector(".wrapper_bundles_without_subscripton");
+
+  if (!wrapper) return;
+
+  const activeBundle = wrapper.querySelector(".bundle-box.active");
+  if (!activeBundle) return;
+
+  const bundleIndex = activeBundle.getAttribute("data_index");
+
+  const getInt = (v) => parseInt(v);
+
+  let items = [];
+
+  // =====================================
+  // 1. COLLECT ALL SELECTED VARIANTS
+  // =====================================
+  const selects = activeBundle.querySelectorAll(".variant-select");
+
+  selects.forEach(select => {
+
+    const variantId = getInt(select.value);
+
+    const existing = items.find(item => item.id === variantId);
+
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      items.push({
+        id: variantId,
+        quantity: 1,
+        properties: isSubscription
+          ? { _subscription: "true" }
+          : {}
+      });
+    }
+
+  });
+
+  // =====================================
+  // 2. GIFT LOGIC
+  // =====================================
+
+  const gift1 = activeBundle.getAttribute("var_id_two");
+  const gift2 = activeBundle.getAttribute("var_id_three");
+  const gift3 = activeBundle.getAttribute("var_id_four");
+
+  if (bundleIndex === "2") {
+
+    if (gift1) {
+      items.push({
+        id: getInt(gift1),
+        quantity: 1,
+        properties: {
+          _bundle: isSubscription
+            ? "Subscription Gift"
+            : "Buy 2 Get 1 Free - Gift"
+        }
+      });
+    }
+
+  } 
+  else if (bundleIndex === "3") {
+
+    if (gift1) {
+      items.push({
+        id: getInt(gift1),
+        quantity: 1,
+        properties: {
+          _bundle: isSubscription
+            ? "Subscription Gift"
+            : "Buy 3 Get 2 Free - Gift"
+        }
+      });
+    }
+
+    if (gift2) {
+      items.push({
+        id: getInt(gift2),
+        quantity: 1,
+        properties: {
+          _bundle: isSubscription
+            ? "Subscription Gift"
+            : "Extra Gift"
+        }
+      });
+    }
+
+  }
+
+  // =====================================
+  // 3. ADD TO CART
+  // =====================================
+  try {
+
+    const res = await fetch("/cart/add.js", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ items })
+    });
+
+    const data = await res.json();
+
+    console.log("Cart updated:", data);
+
+    window.location.href = "/checkout";
+
+  } catch (err) {
+    console.error("Cart error:", err);
+  }
+
+});
+</script>
+
+
+
+
+<script>
+document.querySelectorAll('.bundle-box').forEach(function(box) {
+  box.addEventListener('click', function() {
+    // Get the parent wrapper (with or without subscription)
+    var wrapper = this.closest('.wrapper_bundles_without_subscripton, .wrapper_bundles_with_subscripton');
+    // Remove active from all siblings
+    wrapper.querySelectorAll('.bundle-box').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    // Add active to clicked
+    this.classList.add('active');
+  });
+});
+
+</script>
+
+
+
+<script>
+$(document).ready(function () {
+  var data_index = '';
+$('#subscriptionCheck').prop('checked', true); 
+  function toggleSubscription() {
+
+
+    // Get active bundle index first
+    $('.bundle-box.active').each(function () {
+      data_index = $(this).attr('data_index'); // or .data('index')
+    });
+
+
+    if ($('#subscriptionCheck').is(':checked')) {
+
+
+      $('#subscriptionBox').addClass('active');
+      $('.wrapper_bundles_with_subscripton').show();
+      $('.wrapper_bundles_without_subscripton').hide();
+
+
+      $('.wrapper_bundles_with_subscripton .bundle-box[data_index="' + data_index + '"]')
+        .trigger('click');
+
+
+    } else {
+
+
+      $('#subscriptionBox').removeClass('active');
+      $('.wrapper_bundles_with_subscripton').hide();
+      $('.wrapper_bundles_without_subscripton').show();
+
+
+      $('.wrapper_bundles_without_subscripton .bundle-box[data_index="' + data_index + '"]')
+        .trigger('click');
+    }
+  }
+
+
+  // Initial run
+  toggleSubscription();
+
+
+  // On checkbox change
+  $('#subscriptionCheck').on('change', function () {
+    toggleSubscription();
+  });
+
+
+});
+
+
+</script>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // 1. Remove <kaching-bundle> custom element
+  document.querySelectorAll('kaching-bundle').forEach(el => el.remove());
+
+  // 2. Remove element with BOTH classes
+  document
+    .querySelectorAll('.sealsubs-target-element.sealsubs-full')
+    .forEach(el => el.remove());
+
+  // 3. Remove selling plan input
+  document
+    .querySelectorAll('input[name="selling_plan"]')
+    .forEach(el => el.remove());
+
+  // 4. Remove kaching bundle property input
+  document
+    .querySelectorAll('input[name="properties[__kaching_bundles]"]')
+    .forEach(el => el.remove());
+
+  // 5. Remove quantity input
+  document
+    .querySelectorAll('input[name="quantity"]')
+    .forEach(el => el.remove());
+
+
+     document
+    .querySelectorAll('input[name="properties[_visitor_id]"]')
+    .forEach(el => el.remove());
+});
+</script>
+<script>
+(function () {
+
+  function cleanupInjectedElements() {
+
+    // Kaching bundle element
+    document.querySelectorAll('kaching-bundle')
+      .forEach(el => el.remove());
+
+    // Seal Subscriptions blocks
+    document.querySelectorAll(
+      '.sealsubs-target-element.sealsubs-full, ' +
+      '.sealsubs-target-element.sls-homepage-automatic'
+    ).forEach(el => el.remove());
+
+    // Kaching hidden bundle input
+    document.querySelectorAll(
+      'input[name="properties[__kaching_bundles]"]'
+    ).forEach(el => el.remove());
+
+    // Remove ONLY hidden quantity inputs (safe)
+    document.querySelectorAll(
+      'input[type="hidden"][name="quantity"]'
+    ).forEach(el => el.remove());
+
+     document.querySelectorAll(
+      'input[type="hidden"][name="properties[_visitor_id]"]'
+    ).forEach(el => el.remove());
+  }
+
+  // Run once
+  cleanupInjectedElements();
+
+  // Observe future DOM injections
+  const observer = new MutationObserver(cleanupInjectedElements);
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
+})();
+</script>
+{% endif %}
